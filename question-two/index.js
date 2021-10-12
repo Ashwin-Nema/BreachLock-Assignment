@@ -4,9 +4,18 @@ const databaseeconnection = require('./database')
 const { ParkCar, UnParkCar, CreateNewParkingLot } = require('./Middlewares')
 const ParkingLotModel = require('./models')
 
+// For limiting the number of api requests
+const rateLimit = require("express-rate-limit");
+const apiLimiter = rateLimit({
+    windowMs: 10 * 1000,
+    max: 10,
+    message:"Sorry you are making too many requests"
+  });
+
 const express = require('express')
 const app = express()
 app.use(express.json())
+app.use("/", apiLimiter)
 
 //Function for creeating a new parking lot and extracting an id for the same
 

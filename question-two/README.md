@@ -25,7 +25,7 @@ npm i
 Step 2:
 
 
-In the index.js file there is a function CreateNewParkingLot (starting from line number 13 till line number 18) which I have written in comment please uncomment this function for a while and then start the server in the terminal by typing the following command
+In the index.js file there is a function CreateNewParkingLot (starting from line number 22 till line number 27) which I have written in comment please uncomment this function for a while and then start the server in the terminal by typing the following command
 
 ```bash
 node index.js
@@ -33,13 +33,14 @@ node index.js
 
 Step 3:
 
-Now in the terminal you will get an id this is the id you can use for testing all the endpoints.Comment the lines from 13 to 18 again stop there server and start the server again
+Now in the terminal you will get an id this is the id you can use for testing all the endpoints.Comment the line number from 22 to 27 again and restart the server 
 ```bash
 node index.js
 ```
 
 # Introduction
-Now you have an id of the parking lot id, you can now check all the endpoints in the postman or any other api testing tool 
+Now you have an id of the parking lot id, you can now check all the endpoints in the postman or any other api testing tool. I have used express-rate-limit so that user can make a maximum of 10 requests in 10 seconds. If anyone tries to make more than that then the following message will be shown:\
+"Sorry you are making too many requests"
 <br> </br>
 1.post("/:id"): Through this endpoint you can add a new car in your slot. Here id is the id of Parking lot that you got earlier. A car is added to an empty slot if slots in between are empty, else they are added at the last. If all the slots are filled you get an error message "Parking lot is full". In case if there is already a car with this number errormessage becomes "Car with this car number is already parked in the parking lot" and in case your car is successfully parked you get message "Your car is successfully parked and your slot number is slotnumber", slotnumber is the slot at which the car is parked
 
@@ -65,5 +66,6 @@ For each of these endpoints if the the id is not present in the database then yo
 # Key packages used:
 <ul>
 <li>dotenv </li>
+<li>express-rate-limit </li>
 </ul>
 
