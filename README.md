@@ -1,2 +1,2 @@
 # BreachLock-Assignment
-This is BreachLock Evaluation Assignment for MERN stack developer
+This is BreachLock Evaluation Assignment for MERN stack developer. There are two questions. You can checkout the solutions for question 1 and question 2 in their respective folders
