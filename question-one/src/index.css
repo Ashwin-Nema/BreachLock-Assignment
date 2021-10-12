@@ -1,0 +1,12 @@
+.maingrid {
+    display: grid;
+    grid-template-columns: 3fr 8fr;
+    column-gap: 5vw;
+    row-gap: 5vw;
+}
+
+@media (max-width:800px) {
+    .maingrid {
+        grid-template-columns: 1fr;
+    }
+}
