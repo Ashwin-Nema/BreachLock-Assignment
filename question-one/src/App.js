@@ -50,7 +50,7 @@ function App() {
         <textarea className="form-control" value={content} onChange={(e) => changecontent(e.target.value)}></textarea>
 
         <div className="d-flex justify-content-center mt-3">
-          <button onClick={savenewcard} className={`btn btn-primary ${title.trim() === "" || content.trim() === "" ? "disabled" : ""}`} >Save date </button>
+          <button onClick={savenewcard} className={`btn btn-primary ${title.trim() === "" || content.trim() === "" ? "disabled" : ""}`} >Save Note </button>
         </div>
 
       </div>

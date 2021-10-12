@@ -1,5 +1,5 @@
 # Introduction
-This is a simple note taking application which displays notes in descending order of time. The left side there is a calendar for selecting date and on the right side we have all the notes which a user has written
+This is a simple note taking application which displays notes in descending order of time. The left side there is a calendar for selecting date and on the right side we have all the notes which a user has written. You have to add your title in the title field and body content in the body content field and click on the Save Note button for saving your note
 
 # Key libraries used:
 <ul>
