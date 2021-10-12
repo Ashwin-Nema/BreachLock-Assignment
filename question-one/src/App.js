@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { NewSortedList } from './actions'
-import { useState } from 'react'
+import {  useState } from 'react'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './index.css'
@@ -12,9 +12,9 @@ function App() {
 
   const { UserNotesList } = useSelector(state => state)
   const [date, changedate] = useState(new Date())
+  const [showcardoptions, changeshowcardoptions] = useState(false)
   const [title, changetitle] = useState("")
   const [content, changecontent] = useState("")
-
 
   const savenewcard = () => {
     const listitems = [...UserNotesList]
@@ -28,31 +28,43 @@ function App() {
     dispatch(NewSortedList(listitems))
     changetitle("")
     changecontent("")
+    changeshowcardoptions(false)
   }
-    ;
+
+  const showtitleandbodycontentoptions = (e) => {
+    changedate(e)
+    if (showcardoptions === false) {
+      changeshowcardoptions(true)
+    }
+
+  }
 
   return (
     <div className="maingrid mx-3 mt-3" >
       <div className="w-100">
         <Calendar
-          onChange={changedate}
+          onChange={showtitleandbodycontentoptions}
           value={date}
 
           minDate={new Date()}
         />
 
-        <h3 className="my-3">Title</h3>
+        {showcardoptions &&
 
-        <input className="form-control" type="text" value={title} onChange={(e) => changetitle(e.target.value)} />
+          <>
+            <h3 className="my-3">Title</h3>
 
-        <h3 className="my-3">Body Content</h3>
+            <input className="form-control" type="text" value={title} onChange={(e) => changetitle(e.target.value)} />
 
-        <textarea className="form-control" value={content} onChange={(e) => changecontent(e.target.value)}></textarea>
+            <h3 className="my-3">Body Content</h3>
 
-        <div className="d-flex justify-content-center mt-3">
-          <button onClick={savenewcard} className={`btn btn-primary ${title.trim() === "" || content.trim() === "" ? "disabled" : ""}`} >Save Note </button>
-        </div>
+            <textarea className="form-control" value={content} onChange={(e) => changecontent(e.target.value)}></textarea>
 
+            <div className="d-flex justify-content-center mt-3">
+              <button onClick={savenewcard} className={`btn btn-primary ${title.trim() === "" || content.trim() === "" ? "disabled" : ""}`} >Save Note </button>
+            </div>
+          </>
+        }
       </div>
 
       <div >
