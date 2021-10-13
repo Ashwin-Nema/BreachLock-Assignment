@@ -10,3 +10,17 @@
         grid-template-columns: 1fr;
     }
 }
+
+.hoverdatebackgroundcolor:hover {
+    background-color: #e9e7e8 !important;
+}
+
+/* .react-calendar__tile--now {
+    background: white; 
+    color: black;
+  }
+
+  .react-calendar__tile--now:hover {
+    background: white !important; 
+    color: black;
+  } */

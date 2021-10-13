@@ -5,6 +5,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './index.css'
 import { makenewuserdateobject } from './utils'
+import {useMindatestyle} from './Hooks'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
   const [showcardoptions, changeshowcardoptions] = useState(false)
   const [title, changetitle] = useState("")
   const [content, changecontent] = useState("")
+  useMindatestyle(date)
 
   const savenewcard = () => {
     const listitems = [...UserNotesList]

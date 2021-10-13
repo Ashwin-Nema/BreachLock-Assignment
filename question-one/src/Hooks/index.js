@@ -1,0 +1,1 @@
+export {useMindatestyle} from './usemindatestyle'
