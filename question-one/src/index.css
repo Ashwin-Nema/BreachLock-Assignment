@@ -15,12 +15,28 @@
     background-color: #e9e7e8 !important;
 }
 
-/* .react-calendar__tile--now {
+.react-calendar__tile--now {
     background: white; 
     color: black;
   }
 
   .react-calendar__tile--now:hover {
-    background: white !important; 
+    background: #e9e7e8 !important; 
     color: black;
-  } */
+  }
+
+  .mainstartdatebackground {
+      background-color: #1087ff !important;
+  }
+
+  .mainstartdatebackground:hover {
+    background-color: #1087ff !important;
+}
+
+.react-calendar__tile--hasActive {
+    background-color: #1087ff !important;
+}
+
+.react-calendar__tile--hasActive:hover {
+    background-color: #1087ff !important;
+}

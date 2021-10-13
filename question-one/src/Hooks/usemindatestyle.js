@@ -1,17 +1,17 @@
 import { useEffect } from "react"
+import {applycssonmindate} from '../utils'
 
-export const useMindatestyle = (userselecteddate, mindateelement) => {
-
+export const useMindatestyle = (userselecteddate, viewchange, detectchangeview) => {
+    useEffect(() => {
+        
+        if (viewchange === true) {
+            applycssonmindate(userselecteddate)
+            detectchangeview(false)
+        }
+    }, [viewchange, detectchangeview, userselecteddate])
 
     useEffect(() => {
-        const date = new Date()
-
-        const userdate = `${userselecteddate.getFullYear()}${userselecteddate.getMonth()}${userselecteddate.getDate()}`
-        const currentdate = `${date.getFullYear()}${date.getMonth()}${date.getDate()}`
-        if (userdate !== currentdate && mindateelement[0] !== undefined) {
-            mindateelement[0].classList.add("bg-white", "text-dark", "hoverdatebackgroundcolor")
-            return
-        }
-    }, [userselecteddate, mindateelement])
+        applycssonmindate(userselecteddate)
+    }, [userselecteddate])
     return
 }

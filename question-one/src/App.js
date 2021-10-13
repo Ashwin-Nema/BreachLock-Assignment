@@ -15,11 +15,11 @@ function App() {
   const [showcardoptions, changeshowcardoptions] = useState(false)
   const [title, changetitle] = useState("")
   const [content, changecontent] = useState("")
-  const mindateelement = document.getElementsByClassName("react-calendar__tile--now")
-  useMindatestyle(date, mindateelement)
+
+  const [viewchange, detectchangeview] = useState(false) 
 
 
-
+  useMindatestyle(date, viewchange, detectchangeview)
   const savenewcard = () => {
     const listitems = [...UserNotesList]
     listitems.push({ title, content, date: makenewuserdateobject(date) })
@@ -49,6 +49,9 @@ function App() {
         <Calendar
           onChange={showtitleandbodycontentoptions}
           value={date}
+          onViewChange={() => {
+            detectchangeview(true)
+          }}
           minDate={new Date()}
         />
 
