@@ -1,22 +1,24 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { NewSortedList } from './actions'
-import {  useState } from 'react'
+import { useState } from 'react'
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './index.css'
 import { makenewuserdateobject } from './utils'
-import {useMindatestyle} from './Hooks'
+import { useMindatestyle } from './Hooks'
 
 function App() {
 
   const dispatch = useDispatch()
-
   const { UserNotesList } = useSelector(state => state)
   const [date, changedate] = useState(new Date())
   const [showcardoptions, changeshowcardoptions] = useState(false)
   const [title, changetitle] = useState("")
   const [content, changecontent] = useState("")
-  useMindatestyle(date)
+  const mindateelement = document.getElementsByClassName("react-calendar__tile--now")
+  useMindatestyle(date, mindateelement)
+
+
 
   const savenewcard = () => {
     const listitems = [...UserNotesList]
@@ -47,7 +49,6 @@ function App() {
         <Calendar
           onChange={showtitleandbodycontentoptions}
           value={date}
-
           minDate={new Date()}
         />
 
